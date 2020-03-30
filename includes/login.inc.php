@@ -26,7 +26,7 @@ if (isset($_POST['login-submit'])) {
                 $pwdCheck = password_verify($password, $row['pwdUsers']);
 
                 if ($pwdCheck == false) {
-                    header("Location: ../index.php?error=wromgpwd");
+                    header("Location: ../index.php?error=wrongpwd");
                     exit();
                 } else if ($pwdCheck == true) {
 

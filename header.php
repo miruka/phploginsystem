@@ -30,16 +30,26 @@ session_start();
             <div class="navbar">
                 <?php
                 if (isset($_SESSION['userId'])) {
-                    echo '<form class="navbar" action="includes/logout.inc.php" method="POST">
-                    <button type="submit" name="logout-submit">Logout</button>
-                </form>';
+                    echo    '<form class="navbar" action="includes/logout.inc.php" method="POST">
+                            <button type="submit" name="logout-submit">Logout</button>
+                            </form>';
                 } else {
                     echo ' <form class="navbar" action="includes/login.inc.php" method="POST">
-                    <input type="text" name="mailuid" placeholder="Username/Email...">
-                    <input type="password" name="pwd" placeholder="Password...">
-                    <button type="submit" name="login-submit">Login</button>
-                </form>
-                <a class="navbar" href="signup.php">Signup</a>';
+                                <input type="text" name="mailuid" placeholder="Username/Email...">
+                                <input type="password" name="pwd" placeholder="Password...">
+                                <button type="submit" name="login-submit">Login</button>
+                            </form>';
+                    if (isset($_GET['error'])) {
+                        if ($_GET['error'] == "wrongpwd") {
+                            echo '<div><h6 class=" alert alert-warning">Enter Correct Password</h6></div>';
+                        } else if ($_GET['error'] == "nouser") {
+                            echo '<div><h6 class=" alert alert-warning">Enter Correct Username</h6></div>';
+                        } else if ($_GET['error'] == "emptyfields") {
+                            echo '<div><h6 class=" alert alert-warning">Enter All Fields</h6></div>';
+                        }
+                    }
+
+                    echo ' <a class="navbar h5" href="signup.php">Signup</a>';
                 }
                 ?>
 

@@ -26,6 +26,9 @@ require "header.php";
                 } elseif ($_GET['error'] == "usertaken") {
                     # code...\
                     echo '<p class="alert alert-warning alert-dismissible fade show" role="alert">Username is Already Taken</P>';
+                } elseif ($_GET['error'] == "wrongpwd") {
+                    # code...\
+                    echo '<p class="alert alert-warning alert-dismissible fade show" role="alert">Wrong Password</P>';
                 }
             } else if ($_GET['signup'] == "success") {
                 echo '<p class="alert alert-success">Sign up Successful<p>';
